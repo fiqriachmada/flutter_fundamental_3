@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/widget/form_widget.dart';
 import 'package:flutter_fundamental_3/widget/image_widget.dart';
 
 void main() {
@@ -46,11 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: GestureDetector(
-          onLongPress: _incrementCounter,
+          // onLongPress: _incrementCounter,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const MyImageWidget(),
+              // const MyImageWidget(),
+              const MyFormWidget(),
               const Text(
                 'You have pushed the button this many times:',
               ),
