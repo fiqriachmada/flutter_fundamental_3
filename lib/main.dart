@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/widget/form_widget.dart';
 import 'package:flutter_fundamental_3/widget/image_widget.dart';
+import 'package:flutter_fundamental_3/widget/verification_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  final TextEditingController _controller = TextEditingController.fromValue(
+      const TextEditingValue(text: "isi angka saja"));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +57,21 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               // const MyImageWidget(),
-              const MyFormWidget(),
+              // const MyFormWidget(),
+              VerificationCodeInput(
+                controller: _controller,
+              ),
+              Builder(
+                builder: (BuildContext subContext) => ElevatedButton(
+                  onPressed: () {
+                    final valid = Form.of(subContext)?.validate();
+                    if (kDebugMode) {
+                      print("valid: $valid");
+                    }
+                  },
+                  child: const Text("validate"),
+                ),
+              ),
               const Text(
                 'You have pushed the button this many times:',
               ),
